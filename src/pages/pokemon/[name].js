@@ -119,7 +119,7 @@ function SinglePokemon({ singlepokemon }) {
                                             {stat?.base_stat}
                                         </span>
                                         <div className='h-1 bg-light-gray rounded w-1/2'>
-                                            <div style={{ width: `${stat?.base_stat}%` }} className={`float-left ${stat?.base_stat > 50 ? 'bg-green' : 'bg-red'}  rounded h-full`}>
+                                            <div style={{ width: `${stat?.base_stat>100?100:stat?.base_stat}%` }} className={`float-left ${stat?.base_stat > 50 ? 'bg-green' : 'bg-red'}  rounded h-full`}>
                                             </div>
                                             <div className='w-full h-full'>
                                             </div>
