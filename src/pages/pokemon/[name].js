@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
-import { pokemonImgUrl } from '@/utils';
 import api from '../api/pokemon';
+import { pokemonImgUrl } from '@/utils';
 
 function SinglePokemon({ singlepokemon }) {
     const [currentpokemon, setCurrentPokemon] = useState(singlepokemon)
@@ -22,12 +22,11 @@ function SinglePokemon({ singlepokemon }) {
                 </div>
 
                 <div className='flex flex-col lg:flex-row gap-8 justify-center mt-2 flex-1'>
-
                     <div className='flex flex-shrink-0 w-full lg:w-1/2'>
                         <div className='w-full flex flex-col items-center'>
                             <div className='flex flex-col w-full pl-9'>
                                 <div className=''>
-                                    <span className='text-2xl font-semibold'>{currentpokemon?.name}</span>
+                                    <span className='text-2xl font-medium capitalize'>{currentpokemon?.name}</span>
                                 </div>
                                 <span className='px-4 py-1 bg-meduim-red rounded-3xl w-20 text-center mt-2'>
                                     {currentpokemon?.types[0]?.type?.name}
@@ -42,7 +41,7 @@ function SinglePokemon({ singlepokemon }) {
                     <div className='w-full lg:w-1/2 p-5 md:p-0'>
 
                         <span className='text-base font-semibold'>
-                            About <span className='ml-2 text-xl text-meduim-red font-semibold'>{currentpokemon?.name}</span>
+                            About <span className='ml-2 text-xl text-meduim-red font-medium capitalize'>{currentpokemon?.name}</span>
                         </span>
 
                         <div className='mt-2 md:flex-col md:justify-between flex flex-col gap-2 md:gap-3 sm:justify-center sm:w-full'>
@@ -89,8 +88,6 @@ function SinglePokemon({ singlepokemon }) {
                             </div>
                         )}
 
-
-
                         <div className='flex flex-row flex-wrap w-full gap-2 mt-5'>
                             <span className='w-1/2 sm:w-20 h-20 bg-meduim-red rounded-md flex flex-col justify-center items-center'>
                                 <span className='font-sans font-semibold'>
@@ -128,7 +125,6 @@ function SinglePokemon({ singlepokemon }) {
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -140,7 +136,7 @@ export default SinglePokemon
 
 export async function getServerSideProps(context) {
     const response = await api.get(`/pokemon/${context.query.name}`);
-    const singlepokemon = await response.data
+    const singlepokemon = await response.data;
     return {
         props: {
             singlepokemon

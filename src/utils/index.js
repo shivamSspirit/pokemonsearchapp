@@ -1,10 +1,10 @@
 import { Pokemons_species } from "@/pokemondata/pokemondata";
 
-// poke image url
+// pokemondatabase url
 
 const POKEMON_IMAGES_URL = 'https://img.pokemondb.net/artwork/large';
 
-// generate pokeimage url
+// generate pokemonimage url
 
 export const pokemonImgUrl = (name) => `${POKEMON_IMAGES_URL}/${name}.jpg`;
 

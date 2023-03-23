@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header/Header'
-import Pokemon from '@/components/pokemon/Pokemon'
+import PokemonDetails from '@/components/pokemon/PokemonDetails'
 import api from './api/pokemon'
 import { findPokemonWithQuery } from '@/utils'
 
@@ -18,7 +18,6 @@ const HomePage = ({ pokemons }) => {
   }, [searchquery])
 
 
-
   const fetchmorepokemon = async (url, next) => {
     const response = await api.get(url)
     const nextpokes = await response.data
@@ -34,7 +33,7 @@ const HomePage = ({ pokemons }) => {
 
       <div className='flex flex-col gap-1 mt-2 p-3'>
         {(pokemon?.results)?.map((pokemon, id) => (
-          <Pokemon key={id} pokemon={pokemon} />
+          <PokemonDetails key={id} pokemon={pokemon} />
         ))}
       </div>
 
@@ -47,7 +46,6 @@ const HomePage = ({ pokemons }) => {
 }
 
 export default HomePage
-
 
 export async function getStaticProps(context) {
   const response = await api.get(`/pokemon`, { params: { limit: 10 } })

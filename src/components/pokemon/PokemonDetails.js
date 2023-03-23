@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { pokemonImgUrl } from '@/utils';
 
 
-function Pokemon({ pokemon }) {
+function PokemonDetails({ pokemon }) {
     return (
         <>
             <Link href={`/pokemon/${pokemon.name}`}>
@@ -13,7 +13,7 @@ function Pokemon({ pokemon }) {
                         <Image width={50} height={50} src={`${pokemonImgUrl(pokemon.name)}`} alt={pokemon.name} />
                     </div>
                     <span className='ml-3'>
-                        <p className='text-xl text-meduim-red font-semibold'>
+                        <p className='text-xl text-meduim-red font-medium capitalize'>
                             {pokemon.name}
                         </p>
                     </span>
@@ -23,4 +23,4 @@ function Pokemon({ pokemon }) {
     )
 }
 
-export default Pokemon
+export default PokemonDetails

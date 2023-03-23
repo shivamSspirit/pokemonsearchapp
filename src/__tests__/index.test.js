@@ -1,6 +1,5 @@
  import { getStaticProps } from "@/pages";
  import api from "@/pages/api/pokemon";
-// import axios from 'axios';
 
 jest.mock('../pages/api/pokemon')
  describe('getStaticProps', () => {
